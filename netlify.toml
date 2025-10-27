@@ -13,10 +13,6 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-  [plugins.inputs]
-    disableNextExport = true
-    nextConfig = "next.config.mjs"
-
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
