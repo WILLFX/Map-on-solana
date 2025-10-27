@@ -1,0 +1,23 @@
+# Netlify configuration file for Map-on-Solana
+# Enforces correct build process for Next.js 14 static export
+
+[build]
+  command = "npm run build"
+  publish = "out"
+  base = "/"
+
+[build.environment]
+  NODE_VERSION = "22.21.0"
+  NEXT_TELEMETRY_DISABLED = "1"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+  [plugins.inputs]
+    disableNextExport = true
+    nextConfig = "next.config.mjs"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  included_files = ["app/api/**"]
